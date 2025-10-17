@@ -10,6 +10,16 @@ from flask import Flask, session, request, redirect, url_for, render_template
 import dash_bootstrap_components as dbc
 from flask_caching import Cache
 from data_loader import load_all_data,set_cache
+import json
+import dash_auth
+fileusers  = './etc/secrets/users.json'
+
+with open(fileusers,'rb') as file:
+    users_data = json.load(file)
+
+users = {}
+for key,v in users_data.items():
+    users[v['id']]=v['password']
 
 if '__file__' in globals():
     root_path = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +51,12 @@ app = dash.Dash(__name__, server=server, use_pages=True,
                 meta_tags=[{'name': 'viewport',
                             'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.5,'}]
                 )
+
+auth = dash_auth.BasicAuth(
+    app,
+    users
+)
+
 
 # Set up caching
 cache = Cache(server, config={

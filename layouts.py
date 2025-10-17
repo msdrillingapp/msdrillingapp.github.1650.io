@@ -57,7 +57,8 @@ def get_filters(): #results_MWD
                 # options=[{"label": str(r), "value": str(r)} for r in properties_df["JobNumber"].dropna().unique()],
                 options=[{"label": str(r)+'-'+job_jonname[r], "value": str(r)} for r in job_jonname.keys()],
                 # options=[{"label": str(r), "value": str(r)} for r in accessible_jobs],
-                placeholder="Filter by JobName",
+                # placeholder="Filter by JobName",
+                value=str(1650),
                 style={'width': '150px', 'marginBottom': '10px', 'marginRight': '10px', 'marginLeft': '10px','fontSize': '11px'},
                 className="dark-dropdown"
             ),xs=10, sm=5, md=8, lg=6, xl=5),

@@ -272,13 +272,14 @@ layout = html.Div([
         style=date_picker_style,
         className="dash-datepicker",
     ),
-
+    html.Hr(style={'border': '1px solid #cccccc'}),
+    html.H5('Daily summary', style={'color': 'white', "marginTop": "20px"}),
     # Summary cards
     html.Div(
         id="summary-cards",
         style={"display": "flex", "gap": "20px", "marginTop": "20px"}
     ),
-
+    html.Hr(style={'border': '1px solid #cccccc'}),
     html.Br(),
 
     # Job bar chart
@@ -451,7 +452,7 @@ layout = html.Div([
 @callback(
     Output("job-table", "rowData"),
     Output("summary-cards", "children"),
-    Input("date-picker", "date"),prevent_initial_call=True
+    Input("date-picker", "date")#,prevent_initial_call=True
 )
 def update_table(selected_date):
     selected_date = pd.to_datetime(selected_date)
