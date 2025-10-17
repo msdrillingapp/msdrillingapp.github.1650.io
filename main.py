@@ -12,10 +12,24 @@ from flask_caching import Cache
 from data_loader import load_all_data,set_cache
 import json
 import dash_auth
-fileusers  = './etc/secrets/users.json'
 
-with open(fileusers,'rb') as file:
-    users_data = json.load(file)
+def read_secret_file(fileusers):
+    secret_path = "/etc/secrets/"+ fileusers
+    try:
+        with open(secret_path, 'r') as f:
+            return json.load(secret_path)
+    except FileNotFoundError:
+        print(f"Secret file not found at {secret_path}")
+        return None
+
+# Use the secret
+api_key = read_secret_file()
+
+fileusers  = 'users.json'
+users_data = read_secret_file(fileusers)
+
+# with open(fileusers,'rb') as file:
+#     users_data = json.load(file)
 
 users = {}
 for key,v in users_data.items():
