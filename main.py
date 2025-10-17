@@ -22,9 +22,6 @@ def read_secret_file(fileusers):
         print(f"Secret file not found at {secret_path}")
         return None
 
-# Use the secret
-api_key = read_secret_file()
-
 fileusers  = 'users.json'
 users_data = read_secret_file(fileusers)
 
