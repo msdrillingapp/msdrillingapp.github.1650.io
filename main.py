@@ -17,7 +17,7 @@ def read_secret_file(fileusers):
     secret_path = "/etc/secrets/"+ fileusers
     try:
         with open(secret_path, 'r') as f:
-            return json.load(secret_path)
+            return json.load(f)
     except FileNotFoundError:
         print(f"Secret file not found at {secret_path}")
         return None
