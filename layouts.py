@@ -522,7 +522,7 @@ def add_drilling_summary():
     ]
 
     return html.Div([
-        html.H4("Drilling Summary (!Work in Progress!)",
+        html.H4("Drilling Summary",
                 style={'color': 'white', 'textAlign': 'left', 'marginBottom': 30}),
 
         # Controls Row
