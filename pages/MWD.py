@@ -447,7 +447,7 @@ def update_table(selected_jobid, selected_date,selected_rigid,selected_pilecode,
         State("pilestatus-filter", "value"),
         State("piletype-filter", "value"),
         State("productcode-filter", "value"),
-    ], allow_duplicate=True,prevent_initial_call=True,
+    ], allow_duplicate=True,prevent_initial_call=False,
 )
 def update_filter_options(selected_jobid, selected_date, selected_rigid, selected_pileid,
                           selected_pilecode, selected_pilestatus, selected_piletype, selected_productcode,

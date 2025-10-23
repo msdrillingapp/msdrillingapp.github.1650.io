@@ -100,8 +100,8 @@ app.title = 'MS Drill Tracker'
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Jobs", href="/", active="exact")),
-        dbc.NavItem(dbc.NavLink("CPT", href="/CPT", active="exact")),
-        dbc.NavItem(dbc.NavLink("Jobs Summary", href="/Metrics", active="exact")),
+        # dbc.NavItem(dbc.NavLink("CPT", href="/CPT", active="exact")),
+        # dbc.NavItem(dbc.NavLink("Jobs Summary", href="/Metrics", active="exact")),
     ],
 
     brand=html.Span([
