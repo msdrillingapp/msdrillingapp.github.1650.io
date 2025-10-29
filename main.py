@@ -14,7 +14,7 @@ import json
 import dash_auth
 
 def read_secret_file(fileusers):
-    secret_path = "./etc/secrets/"+ fileusers
+    secret_path = "/etc/secrets/"+ fileusers
     try:
         with open(secret_path, 'r') as f:
             return json.load(f)
